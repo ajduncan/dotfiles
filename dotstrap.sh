@@ -19,6 +19,7 @@ cat << EOF
 EOF
 
 source_directory=$(dirname "${BASH_SOURCE}")
+cd $source_directory
 
 function dotsync {
 	echo "Dottenating ~ with dots from $source_directory ..."
@@ -30,15 +31,24 @@ function dotsync {
 	-avh --no-perms . ~
 }
 
+function resource {
+	# additional files to source 
+	source_files=".bash_profile .bash_prompt .bash_git"
+	for f in $source_files
+	do
+		if [ -f "$f" ]; then
+			echo "Sourcing $f ..."
+			source $f
+		fi
+	done
+}
+
 # Check with the user to make sure dotfiles should be copied over.
 read -p "Are you sure you want to overwrite files in your home directory with these dotfiles? [y/N] " -n 1
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	dotsync
-	if [ -f ~/.bash_profile ]; then
-		echo "re-sourcing ~/.bash_profile..."
-		source ~/.bash_profile
-	fi
+	resource
 	echo "Dottenated."
 else
 	echo "Aborted."

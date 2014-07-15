@@ -19,14 +19,3 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 alias reload='source ~/.bash_profile'
-
-# additional files to source 
-SOURCE_FILES="~/.bash_prompt ~/.bash_git"
-
-for f in $SOURCE_FILES
-do
-	if [ -f $f ]; then
-		echo "Sourcing $f ..."
-		source $f
-	fi
-done
