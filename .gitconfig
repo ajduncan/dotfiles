@@ -1,0 +1,12 @@
+[user]
+
+	name = Andy Duncan
+	email = ajduncan@gmail.com
+
+[push]
+
+	default = simple
+
+[color]
+
+	ui = auto
