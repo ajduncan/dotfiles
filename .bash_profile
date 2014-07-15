@@ -11,6 +11,22 @@ export EDITOR='subl -w'
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# have a pretty prompt
-export TERM="xterm-color"
-export PS1='\[\e[0;36m\]\u\[\e[0m\]\[\e[0;31m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
+# aliases
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias reload='source ~/.bash_profile'
+
+# additional files to source 
+SOURCE_FILES="~/.bash_prompt ~/.bash_git"
+
+for f in $SOURCE_FILES
+do
+	if [ -f $f ]; then
+		echo "Sourcing $f ..."
+		source $f
+	fi
+done
