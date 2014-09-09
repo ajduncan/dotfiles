@@ -1,7 +1,7 @@
 # specify some path info
-export PATH=$PATH:~/bin/
+export PATH=$PATH:~/bin
 export GOPATH=$HOME/projects/go
-export PATH=/usr/local/bin:$GOPATH/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$GOPATH/bin:$PATH
 export PATH=/opt/chef/embedded/bin:$PATH
 
 # editor
